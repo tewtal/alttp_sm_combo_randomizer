@@ -96,7 +96,7 @@ class Central extends Region {
 		});
 
 		$this->locations["Super Missile (Crateria)"]->setRequirements(function($location, $items) {
-			return $items->canUsePowerBombs() && $items->hasEnergyReserves(2) && $items->has('SpeedBooster');
+			return $items->canUsePowerBombs() && $items->hasEnergyReserves(2) && $items->has('SpeedBooster') && $items->has('IceBeam');
 		});
 
 		$this->locations["Bombs"]->setRequirements(function($location, $items) {
