@@ -57,8 +57,9 @@ class Outer extends Region {
 		});
 
         $this->locations["Energy Tank, Mama turtle"]->setRequirements(function($location, $items) {
-            return $items->canFlySM() || $items->has('SpeedBooster') || $items->has('Grapple') || $items->canSpringBallJump();        
-		});
+            return $items->canFlySM() || $items->has('Grapple') || $items->canSpringBallJump()
+		|| ($items->has('Gravity') && $items->has('SpeedBooster'));
+                });
 
         $this->can_enter = function($locations, $items) {
             return ($this->world->getRegion('West Norfair')->canEnter($locations, $items)
