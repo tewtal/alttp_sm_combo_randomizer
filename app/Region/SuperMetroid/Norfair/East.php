@@ -91,12 +91,23 @@ class East extends Region {
         });
 
         $this->can_enter = function($locations, $items) {
-            return ((($items->canDestroyBombWalls() || $items->has('SpeedBooster'))
-                && ($items->has('Super') && $items->has('Morph')))
-                || $items->canAccessNorfairPortal())
-                && $items->canHellRun()
-                && ($items->has('Super') && ($items->canFlySM() || $items->has('HiJump') || $items->canSpringBallJump() || ($items->has('Varia') && ($items->has('Ice') || $items->has('SpeedBooster'))))
-                 || ($items->has('SpeedBooster') && $items->canUsePowerBombs()));
+            return (
+		    /* Norfair Main Street Access */
+		    (($items->canDestroyBombWalls() || $items->has('SpeedBooster'))
+                	&& ($items->has('Super') && $items->has('Morph')))
+		    || $items->canAccessNorfairPortal())
+		    
+		    /*Hell Run and Green Door*/
+		    && $items->canHellRun()
+		    && ($items->has('Super') 
+		    
+		    /*Cathedral Route*/
+		    && ($items->canFlySM() || $items->has('HiJump') || $items->has('SpeedBooster') || $items->canSpringBallJump() || ($items->has('Varia') && ($items->has('Ice') || $items->has('SpeedBooster'))))
+		    
+		    /*Speedway route*/
+		      || ($items->has('SpeedBooster') && $items->canUsePowerBombs())
+		       
+		    );
         };
         
 		return $this;
