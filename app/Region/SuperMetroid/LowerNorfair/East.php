@@ -62,12 +62,24 @@ class East extends Region {
 	 */
 	public function initTournament() {
         
-        $this->locations["Power Bomb (Power Bombs of shame)"]->setRequirements(function($location, $items) {
+        $this->locations["Missile (lower Norfair near Wave Beam)"]->setRequirements(function($location, $items) {
+			return $items->has('Morph') && $items->canDestroyBombWalls();
+        });
+
+		$this->locations["Missile (Mickey Mouse room)"]->setRequirements(function($location, $items) {
+			return $items->has('Morph') && $items->canDestroyBombWalls();
+        });
+
+		$this->locations["Power Bomb (lower Norfair above fire flea room)"]->setRequirements(function($location, $items) {
+			return $items->canPassBombPassages();
+        });
+
+		$this->locations["Power Bomb (Power Bombs of shame)"]->setRequirements(function($location, $items) {
 			return $items->canUsePowerbombs();
         });
 
         $this->locations["Energy Tank, Ridley"]->setRequirements(function($location, $items) {
-			return $items->canUsePowerbombs() && $items->has('Super') && $items->has('ChargeBeam');
+			return $items->canUsePowerbombs() && $items->has('Super') && $items->has('Charge');
         });
 
 		$this->can_enter = function($locations, $items) {
@@ -76,14 +88,16 @@ class East extends Region {
 						&& $items->canUsePowerBombs()		
 						&& ($items->has('HiJump') || $items->has('Gravity')))
 					|| ($items->canAccessLowerNorfairPortal() 
-						&& $items->canDestroyBombWalls() 
+						&& $items->canDestroyBombWalls()
+						&& $items->has('Super') 
 						&& ($items->canFlySM() || $items->canSpringBallJump() || $items->has('SpeedBooster'))))
-				&& ($items->canFlySM() || $items->has('HiJump') || $items->canSpringBallJump() || ($items->has('IceBeam') && $items->has('ChargeBeam')))
-				&& ($items->canPassBombPassages() || ($items->has('ScrewAttack') && $items->has('SpaceJump')));
+				&& ($items->canFlySM() || $items->has('HiJump') || $items->canSpringBallJump() || ($items->has('Ice') && $items->has('Charge')))
+				&& ($items->canPassBombPassages() || ($items->has('ScrewAttack') && $items->has('SpaceJump')))
+				&& ($items->has('Morph') || $items->hasEnergyReserves(5));
 		};
 
 		$this->can_complete = function($locations, $items) {
-			return $this->canEnter($locations, $items) && $items->canUsePowerbombs() && $items->has('Super') && $items->has('ChargeBeam');
+			return $this->canEnter($locations, $items) && $items->canUsePowerbombs() && $items->has('Super') && $items->has('Charge');
 		};
 
 		$this->prize_location->setRequirements($this->can_complete);	
@@ -103,7 +117,7 @@ class East extends Region {
         });
 
         $this->locations["Energy Tank, Ridley"]->setRequirements(function($location, $items) {
-			return $items->canUsePowerbombs() && $items->has('Super') && $items->has('ChargeBeam');
+			return $items->canUsePowerbombs() && $items->has('Super') && $items->has('Charge');
         });
 
         $this->can_enter = function($locations, $items) {
@@ -120,7 +134,7 @@ class East extends Region {
         };
 
 		$this->can_complete = function($locations, $items) {
-			return $this->canEnter($locations, $items) && $items->canUsePowerbombs() && $items->has('Super') && $items->has('ChargeBeam');
+			return $this->canEnter($locations, $items) && $items->canUsePowerbombs() && $items->has('Super') && $items->has('Charge');
 		};
 
 		$this->prize_location->setRequirements($this->can_complete);
