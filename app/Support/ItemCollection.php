@@ -625,7 +625,7 @@ class ItemCollection extends Collection {
 		switch($this->world->getSMLogic())
 		{
 			case 'Casual':
-				return $this->has('SpeedBooster') || $this->canAccessMaridiaPortal();
+				return $this->has('Charge') && ($this->has('SpeedBooster') || $this->canAccessMaridiaPortal());
 			case 'Tournament':
 			default:
 				return $this->has('Ice') || $this->has('SpeedBooster') || $this->canAccessMaridiaPortal();
