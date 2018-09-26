@@ -90,7 +90,7 @@ class West extends Region {
         });
 
         $this->locations["Super Missile (Gold Torizo)"]->setRequirements(function($location, $items) {
-			return $items->canDestroyBombWalls() 
+			return $items->canDestroyBombWalls() && ($items->has('Charge') || $items->has('Super'))
 				&& ($items->canAccessLowerNorfairPortal() || ($items->has('SpaceJump') && $items->canUsePowerBombs()));
         });
 
