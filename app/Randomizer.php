@@ -1461,7 +1461,7 @@ class Randomizer {
 			array_push($advancement_items, Item::get('Super'));
 		}
 
-		for ($i = 0; $i < $this->config('item.count.AdvancementPowerBomb', 1); $i++) {
+		for ($i = 0; $i < $this->config('item.count.AdvancementPowerBomb', 2); $i++) {
 			array_push($advancement_items, Item::get('PowerBomb'));
 		}
 
@@ -1471,6 +1471,14 @@ class Randomizer {
 
 		for ($i = 0; $i < $this->config('item.count.Charge', 1); $i++) {
 			array_push($advancement_items, Item::get('Charge'));
+		}
+
+		for ($i = 0; $i < $this->config('item.count.Wave', 1); $i++) {
+			array_push($advancement_items, Item::get('Wave'));
+		}
+
+		for ($i = 0; $i < $this->config('item.count.Plasma', 1); $i++) {
+			array_push($advancement_items, Item::get('Plasma'));
 		}
 
 		return $advancement_items;
@@ -1534,16 +1542,8 @@ class Randomizer {
 		}
 
 		/* Super Metroid Items */
-		for ($i = 0; $i < $this->config('item.count.Wave', 1); $i++) {
-			array_push($items_to_find, Item::get('Wave'));
-		}
-
 		for ($i = 0; $i < $this->config('item.count.Spazer', 1); $i++) {
 			array_push($items_to_find, Item::get('Spazer'));
-		}
-
-		for ($i = 0; $i < $this->config('item.count.Plasma', 1); $i++) {
-			array_push($items_to_find, Item::get('Plasma'));
 		}
 
 		for ($i = 0; $i < $this->config('item.count.XRay', 1); $i++) {
@@ -1636,7 +1636,7 @@ class Randomizer {
 			array_push($items_to_find, Item::get('Super'));
 		}
 
-		for ($i = 0; $i < $this->config('item.count.PowerBomb', 9); $i++) {
+		for ($i = 0; $i < $this->config('item.count.PowerBomb', 8); $i++) {
 			array_push($items_to_find, Item::get('PowerBomb'));
 		}
 
