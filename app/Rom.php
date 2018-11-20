@@ -689,11 +689,16 @@ class Rom {
 		$equipment[0x363] = $equipment[0x361] = $starting_rupees >> 8;
 
 		$this->write(0x183000, pack('C*', ...$equipment));
+		$this->write(0x5E0361, pack('C*', ...$equipment), true, false); // write to the combomizer's copy of the SRAM
 		$this->setMaxArrows($starting_arrow_capacity);
 		$this->setMaxBombs($starting_bomb_capacity);
 
 		if (config('game-mode') != 'swordless' && $equipment[0x359]) {
 			$this->write(0x180043, pack('C*', $equipment[0x359])); // write starting sword
+			$this->write(0x5E0064, pack('C*', $equipment[0x359]), true, false); // write combomizer starting sword
+		} else {
+			//Fix later - should be written in setSwordlessMode(), but it currently would get overridden
+			$this->write(0x5E037A, pack('C*', 0xFF), true, false); // swordless gets "smithy" sword
 		}
 
 		return $this;
@@ -2968,12 +2973,15 @@ class Rom {
 	 * @param int $offset location in the ROM to begin writing
 	 * @param string $data data to write to the ROM
 	 * @param bool $log write this write to the log
+	 * @param bool $comboOffset use the combo offset based off of the given offset
 	 *
 	 * @return $this
 	 */
-	public function write(int $offset, string $data, bool $log = true) : self {
+	public function write(int $offset, string $data, bool $log = true, bool $comboOffset = true) : self {
 		
-		$offset = $this->getComboOffset($offset);
+		if ($comboOffset) {
+			$offset = $this->getComboOffset($offset);
+		}
 
 		if ($log) {
 			$this->write_log[] = [$offset => array_values(unpack('C*', $data))];
