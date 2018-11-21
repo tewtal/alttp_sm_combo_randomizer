@@ -122,7 +122,7 @@ class Inner extends Region {
 			return $items->has('Grapple') 
 				&& $items->canUsePowerBombs()
 				&& (($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump')))
-				|| ($items->has('HiJump') && $items->canSpringBallJump() && $items->has('SpaceJump')));
+				|| ($items->has('Ice') && $items->has('HiJump') && $items->canSpringBallJump() && $items->has('SpaceJump')));
 		});
 
         $this->locations["Missile (Draygon)"]->setRequirements(function($location, $items) {
