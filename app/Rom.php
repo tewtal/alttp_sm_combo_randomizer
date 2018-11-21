@@ -696,7 +696,9 @@ class Rom {
 		if (config('game-mode') != 'swordless' && $equipment[0x359]) {
 			$this->write(0x180043, pack('C*', $equipment[0x359])); // write starting sword
 			$this->write(0x5E0064, pack('C*', $equipment[0x359]), true, false); // write combomizer starting sword
-		} else {
+		}
+		
+		if (config('game-mode') == 'swordless') {
 			//Fix later - should be written in setSwordlessMode(), but it currently would get overridden
 			$this->write(0x5E037A, pack('C*', 0xFF), true, false); // swordless gets "smithy" sword
 		}
