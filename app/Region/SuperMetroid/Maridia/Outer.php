@@ -57,7 +57,7 @@ class Outer extends Region {
 		});
 
         $this->locations["Energy Tank, Mama turtle"]->setRequirements(function($location, $items) {
-            return $items->canFlySM() || $items->has('SpeedBooster') || $items->has('Grapple') || $items->canSpringBallJump();        
+            return $items->canFlySM() || $items->has('SpeedBooster') || $items->has('Grapple') || $items->canSpringBallJump();
 		});
 
         $this->can_enter = function($locations, $items) {

@@ -129,8 +129,7 @@ class East extends Region {
 						&& $items->canDestroyBombWalls()
 						&& $items->has('Super')
 						&& $items->canUsePowerBombs()
-						&& ($items->canFlySM() || $items->has('SpeedBooster'))))
-				&& ($items->canFlySM() || $items->has('HiJump'));
+						&& $items->canFlySM()));
         };
 
 		$this->can_complete = function($locations, $items) {

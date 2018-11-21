@@ -1472,14 +1472,15 @@ class Randomizer {
 		for ($i = 0; $i < $this->config('item.count.Charge', 1); $i++) {
 			array_push($advancement_items, Item::get('Charge'));
 		}
-		
+
 		for ($i = 0; $i < $this->config('item.count.Wave', 1); $i++) {
 			array_push($advancement_items, Item::get('Wave'));
 		}
-		
+
 		for ($i = 0; $i < $this->config('item.count.Plasma', 1); $i++) {
 			array_push($advancement_items, Item::get('Plasma'));
 		}
+
 		return $advancement_items;
 	}
 
@@ -1541,7 +1542,6 @@ class Randomizer {
 		}
 
 		/* Super Metroid Items */
-
 		for ($i = 0; $i < $this->config('item.count.Spazer', 1); $i++) {
 			array_push($items_to_find, Item::get('Spazer'));
 		}
