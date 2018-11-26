@@ -21,7 +21,6 @@
 	<li>Some additional fixes has been done to the item pool allocations that could cause some item placements not to be possible.</li>
 	<li>A seed identifier has been added to the file select screen before starting a new game.</li>
 	<li>The bomb blocks in the "climb room" during the escape will now automatically be cleared preventing a potential softlock.</li>
-	</ul>
 	<br/>
 	<li><h4>Huge thanks to all contributors for helping out with fixes and patches for V10.1</h4></li>
 	</ul>
