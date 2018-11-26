@@ -10,6 +10,22 @@
 	<br />
 	<p>
 	<h2>Changelog</h3>
+	<h3>2018-11-25 - Version 10.1</h3>
+	<ul>
+	<li>Checkerboard cave now correctly has a requirement for gloves when accessed through the Lower Norfair to Misery Mire portal.</li>
+	<li>Suitless mama turtle now always requires high-jump. (Hard mode)</li>
+	<li>Right side upper norfair hellruns is now in logic with only speedbooster. (Hard mode)</li>
+	<li>Golden Torizo has its logic fixed to require charge beam or super missiles to fight him.</li>
+	<li>The logic no longer requires a short charge to escape Golden Torizo. (Normal mode)</li>
+	<li>Ice beam is now an additional requirement to access suitless springball. (Hard mode)</li>
+	<li>Some additional fixes has been done to the item pool allocations that could cause some item placements not to be possible.</li>
+	<li>A seed identifier has been added to the file select screen before starting a new game.</li>
+	<li>The bomb blocks in the "climb room" during the escape will now automatically be cleared preventing a potential softlock.</li>
+	</ul>
+	<br/>
+	<li><h4>Huge thanks to all contributors for helping out with fixes and patches for V10.1</h4></li>
+	</ul>
+	<br/>
 	<h3>2018-07-27 - Version 10</h3>
 	<ul>
 	<li>Dynamic text is now added back in, which means that checking pedestal and tables will now give a hint to what items is at those locations.</li>
