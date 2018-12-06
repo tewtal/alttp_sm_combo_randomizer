@@ -272,6 +272,14 @@ var ROM = (function(blob, loaded_callback) {
 			resolve(this);
 		}.bind(this));
 	}.bind(this);
+	
+	this.setSamusHealthAlarm = function(alarm) {
+		return new Promise(function(resolve, reject) {
+			this.write(0x10EA85, alarm ? 0x60 : 0x30 /*, false */);  // set the code to RTS if "alarm" is set, ie non-zero. Yes (first selection, 0) will be the default option. No (second selection, 1) will be the other option
+			this.write(0x10E6D5, alarm ? 0x60 : 0x30 /*, false */);  // set the code to RTS if "alarm" is set, ie non-zero. Yes (first selection, 0) will be the default option. No (second selection, 1) will be the other option
+			resolve(this);
+		}.bind(this));
+	}.bind(this);
 
 	this.parsePatch = function(patch, progressCallback) {
 		return new Promise(function(resolve, reject) {
