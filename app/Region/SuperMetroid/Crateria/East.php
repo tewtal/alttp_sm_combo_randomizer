@@ -78,7 +78,7 @@ class East extends Region {
 	public function initCasual() {
 
 		$this->locations["Missile (outside Wrecked Ship bottom)"]->setRequirements(function($location, $items) {
-			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canSpringBallJump() || $items->canAccessMaridiaPortal());
+			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canAccessMaridiaPortal());
 		});
 
 		$this->locations["Missile (outside Wrecked Ship top)"]->setRequirements(function($location, $items) {
