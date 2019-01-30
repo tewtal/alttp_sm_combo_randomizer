@@ -33,7 +33,7 @@ class RandomAssumed extends Filler {
 		$trash = array_splice($extra, 0, $gt_locations->count());
 		$this->fastFillItemsInLocations($trash, $gt_locations);
 
-		$randomized_order_locations = $randomized_order_locations->getEmptyLocations()->reverse();
+		$randomized_order_locations = $this->shuffleLocations($randomized_order_locations->getEmptyLocations());
 		
 		$shuffledItems = $this->shuffleItems($required);
 		$required = array_merge($this->shuffleItems($initial), $shuffledItems);

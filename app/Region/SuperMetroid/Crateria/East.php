@@ -78,16 +78,16 @@ class East extends Region {
 	public function initCasual() {
 
 		$this->locations["Missile (outside Wrecked Ship bottom)"]->setRequirements(function($location, $items) {
-			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canAccessMaridiaPortal());
+			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))) || $items->canAccessMaridiaPortal());
 		});
 
 		$this->locations["Missile (outside Wrecked Ship top)"]->setRequirements(function($location, $items) {
-			return (($items->has('Super') && ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canSpringBallJump())) || $items->canAccessMaridiaPortal())
+			return (($items->has('Super') && ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))))) || $items->canAccessMaridiaPortal())
 				&& ($items->has('HiJump') || $items->canFlySM() || $items->has('SpeedBooster'));
 		});
 
 		$this->locations["Missile (outside Wrecked Ship middle)"]->setRequirements(function($location, $items) {
-			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canSpringBallJump() || $items->canAccessMaridiaPortal())
+			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))) || $items->canAccessMaridiaPortal())
 			    && $items->has('Super');
 		});
 

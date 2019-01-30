@@ -128,7 +128,7 @@ class WreckedShip extends Region {
 		
         $this->can_enter = function($locations, $items) {
 			return $items->has('Super') && 
-			(($items->canUsePowerBombs() && ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || $items->canSpringBallJump())) 
+			(($items->canUsePowerBombs() && ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))))) 
 			  || ($items->canAccessMaridiaPortal() && $items->has('Gravity') && $items->canPassBombPassages()));
 		};
 
