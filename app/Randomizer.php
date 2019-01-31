@@ -1632,7 +1632,7 @@ class Randomizer {
 			array_push($items_to_find, Item::get('Missile'));
 		}
 
-		for ($i = 0; $i < $this->config('item.count.Super', 16); $i++) {
+		for ($i = 0; $i < $this->config('item.count.Super', 15); $i++) {
 			array_push($items_to_find, Item::get('Super'));
 		}
 
