@@ -40,7 +40,7 @@ class NorthEast extends Region {
 			new Shop\TakeAny("Long Fairy Cave", 0x83, 0xA0, 0x0112, 0x55, $this, [0xDBBC7 => [0x58]]),
 		]);
 
-		$this->weighting = -89;
+		$this->weighting = -97;
 	}
 
 	/**
