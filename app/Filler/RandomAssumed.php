@@ -103,12 +103,13 @@ class RandomAssumed extends Filler {
 	{
 		$i = 100;
 		$weighted_locations = array();
+		
 		foreach($locations->values() as $location)
 		{
-			$weighted_locations[$i] = $location;
-			$i += 1;
-			$i -= $location->getRegion()->getWeighting();
+			$weighted_locations[$i - $location->getRegion()->getWeighting()] = $location;
+			$i += 10;
 		}
+
 		ksort($weighted_locations);
 		return new \ALttP\Support\LocationCollection(array_values($weighted_locations));
 	}
