@@ -42,6 +42,7 @@ class Inner extends Region {
 		
 		$this->prize_location = $this->locations["Draygon"];
 		$this->prize_location->setItem(Item::get('DefeatDraygon'));
+		$this->weighting = 22;
 	}
 
 	/**

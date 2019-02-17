@@ -16,6 +16,7 @@ class Region {
 	protected $world;
 	protected $region_items = [];
 	protected $boss = null;
+	protected $weighting = 0;
 
 	protected $map_reveal = 0x0000;
 
@@ -335,5 +336,9 @@ class Region {
 	 */
 	public function getShop(string $name) {
 		return $this->shops[$name];
+	}
+
+	public function getWeighting() {
+		return $this->weighting;
 	}
 }

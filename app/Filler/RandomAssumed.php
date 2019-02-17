@@ -34,7 +34,8 @@ class RandomAssumed extends Filler {
 		$this->fastFillItemsInLocations($trash, $gt_locations);
 
 		$randomized_order_locations = $this->shuffleLocations($randomized_order_locations->getEmptyLocations());
-		
+		$randomized_order_locations = $this->applyRegionWeighting($randomized_order_locations);
+
 		$shuffledItems = $this->shuffleItems($required);
 		$required = array_merge($this->shuffleItems($initial), $shuffledItems);
 
@@ -96,5 +97,19 @@ class RandomAssumed extends Filler {
 
 			$fill_location->setItem($item);
 		}
+	}
+
+	private function applyRegionWeighting($locations)
+	{
+		$i = 100;
+		$weighted_locations = array();
+		foreach($locations->values() as $location)
+		{
+			$weighted_locations[$i] = $location;
+			$i += 1;
+			$i -= $location->getRegion()->getWeighting();
+		}
+		ksort($weighted_locations);
+		return new \ALttP\Support\LocationCollection(array_values($weighted_locations));
 	}
 }

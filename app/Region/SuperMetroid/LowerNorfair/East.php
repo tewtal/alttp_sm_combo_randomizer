@@ -35,6 +35,7 @@ class East extends Region {
 
 		$this->prize_location = $this->locations["Ridley"];
 		$this->prize_location->setItem(Item::get('DefeatRidley'));
+		$this->weighting = 23;
 	}
 
 	/**
