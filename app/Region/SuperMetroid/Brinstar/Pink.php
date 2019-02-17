@@ -32,6 +32,7 @@ class Pink extends Region {
 			new Location\SuperMetroid\Visible("Energy Tank, Waterway", 0xF787FA, null, $this),
 			new Location\SuperMetroid\Visible("Energy Tank, Brinstar Gate", 0xF78824, null, $this),
 		]);
+		$this->weighting = -36;
 	}
 
 	/**

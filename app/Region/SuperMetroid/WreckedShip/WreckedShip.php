@@ -36,8 +36,6 @@ class WreckedShip extends Region {
 
 		$this->prize_location = $this->locations["Phantoon"];
 		$this->prize_location->setItem(Item::get('DefeatPhantoon'));
-
-		$this->weighting = 11;
 	}
 
 	/**

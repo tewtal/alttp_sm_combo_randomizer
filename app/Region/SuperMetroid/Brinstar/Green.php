@@ -32,6 +32,7 @@ class Green extends Region {
             new Location\SuperMetroid\Visible("Energy Tank, Etecoons", 0xF787C2, null, $this),            
             new Location\SuperMetroid\Visible("Super Missile (green Brinstar bottom)", 0xF787D0, null, $this),            
 		]);
+		$this->weighting = -55;
 	}
 
 	/**

@@ -103,7 +103,6 @@ class RandomAssumed extends Filler {
 	{
 		$i = 100;
 		$weighted_locations = array();
-		
 		foreach($locations->values() as $location)
 		{
 			$weighted_locations[$i - $location->getRegion()->getWeighting()] = $location;

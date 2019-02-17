@@ -66,7 +66,7 @@ class NorthWest extends Region {
 			->addInventory(1, Item::get('Heart'), 10)
 			->addInventory(2, Item::get('TenBombs'), 50);
 
-		$this->weighting = -101;
+		$this->weighting = -139;
 	}
 
 	/**
