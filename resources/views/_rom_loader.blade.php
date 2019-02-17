@@ -25,7 +25,6 @@
 		<ol>
 			<li>Select your roms and load it into the browser
 				(Please use <strong>Zelda no Densetsu: Kamigami no Triforce v1.0</strong> and <strong>Super Metroid (JU)</strong> ROMs with .smc or .sfc extensions)</li>
-			<li>Select the <a href="/options">options</a> for how you would like your game randomized</li>
 			<li>Click Generate</li>
 			<li>Then Save your rom and get to playing</li>
 		</ol>

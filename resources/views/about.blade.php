@@ -10,11 +10,13 @@
 	<br />
 	<p>
 	<h2>Changelog</h3>
-	<h3>2019-01-30 - Version 10.2</h3>
+	<h3>2019-02-17 - Version 10.2</h3>
 	<ul>
 	<li>This version fixes an issue with item placement where progression items ended up being significantly more likely to show up in ALTTP dungeons than would be expected.</li>
 	<li>The Super Metroid map should now correctly mark visited areas as visited.</li>
 	<li>The Super Metroid map has some graphical changes that indicates portals to A Link to the Past</li>
+	<li>The item graphics for ALTTP items in Super Metroid has been overhauled to correct palette errors, add SM-like flashing and also includes color-blind friendly versions of otherwise similar items.</li>
+	<li>Max ammo indicators have been added to Super Metroid.</li>
 	<li>The music is now properly started when entering Maridia through the portal.</li>
 	<li>The Special Beam Attacks are now properly tracked in the credits.</li>
 	<li>Power Bombs and Bombs used are now properly tracked in the credits.</li>
@@ -24,7 +26,14 @@
 		<li>Using Gravity Suit and either IBJ or Hi-Jump to get past the moat before Wrecked Ship is now in logic.</li>
 	</ul>
 	<br/>
-	<li><h4>Huge thanks to all contributors for helping out with fixes and patches for V10.2</h4></li>
+	<li><h4>Huge thanks to all contributors to Version 10.2</h4>
+	<ul>
+	<li>Lenophis - New map grahics and porting Personitis max ammo display patch</li>
+	<li>qwertymodo - Fixing map corruption when teleporting between games</li>
+	<li>Natalie - New ALTTP item graphics in SM</li>
+	<li>NDIAZ - Fixing maridia portal music issue</li>
+	</ul>
+	</li>
 	</ul>
 	<br/>
 	<h3>2018-11-25 - Version 10.1</h3>
