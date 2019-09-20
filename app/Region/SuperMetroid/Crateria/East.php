@@ -63,7 +63,8 @@ class East extends Region {
         $this->can_enter = function($locations, $items) {
 			return ($items->canUsePowerBombs() && $items->has('Super'))
 				|| ($items->canAccessNorfairPortal() && $items->canUsePowerBombs() && ($items->has('Ice') || $items->canSpringBallJump() || $items->has('HiJump') || $items->canFlySM()))
-				|| ($items->canAccessMaridiaPortal() && $items->has('HiJump') && $items->has('Super'));
+				|| ($items->canAccessMaridiaPortal() && $items->has('Super') 
+					&& ($items->has('HiJump') && $items->canPassBombPassages()) || ($items->has('Gravity') && ($items->canDefeatDraygon() || $items->canDestroyBombWalls())) );
 		};
 
 		return $this;
