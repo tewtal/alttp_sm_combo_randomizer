@@ -95,19 +95,22 @@ class Inner extends Region {
 		});
 
 		$this->locations["Missile (left Maridia sand pit room)"]->setRequirements(function($location, $items) {
-			return ($items->has('HiJump') && ($items->has('SpaceJump') || $items->canSpringBallJump())) || $items->has('Gravity');
+			return $items->has('Super')
+				&& (($items->has('HiJump') && ($items->has('SpaceJump') || $items->canSpringBallJump())) || $items->has('Gravity'));
 		});
 
 		$this->locations["Reserve Tank, Maridia"]->setRequirements(function($location, $items) {
-			return ($items->has('HiJump') && ($items->has('SpaceJump') || $items->canSpringBallJump())) || $items->has('Gravity');
+			return $items->has('Super')
+				&& (($items->has('HiJump') && ($items->has('SpaceJump') || $items->canSpringBallJump())) || $items->has('Gravity'));
 		});
 
 		$this->locations["Missile (right Maridia sand pit room)"]->setRequirements(function($location, $items) {
-			return $items->has('HiJump') || $items->has('Gravity');
+			return $items->has('Super') && ($items->has('HiJump') || $items->has('Gravity'));
 		});
 		
-        $this->locations["Power Bomb (right Maridia sand pit room)"]->setRequirements(function($location, $items) {
-			return ($items->has('HiJump') && $items->canSpringBallJump()) || $items->has('Gravity');
+     $this->locations["Power Bomb (right Maridia sand pit room)"]->setRequirements(function($location, $items) {
+			return $items->has('Super')
+				&& (($items->has('HiJump') && $items->canSpringBallJump()) || $items->has('Gravity'));
 		});
 
         $this->locations["Missile (pink Maridia)"]->setRequirements(function($location, $items) {
@@ -121,6 +124,7 @@ class Inner extends Region {
         $this->locations["Spring Ball"]->setRequirements(function($location, $items) {
 			return $items->has('Grapple') 
 				&& $items->canUsePowerBombs()
+				&& $items->has('Super')
 				&& (($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump')))
 				|| ($items->has('Ice') && $items->has('HiJump') && $items->canSpringBallJump() && $items->has('SpaceJump')));
 		});
@@ -140,6 +144,7 @@ class Inner extends Region {
         $this->can_enter = function($locations, $items) {
             return ($this->world->getRegion('West Norfair')->canEnter($locations, $items)
 				  && $items->canUsePowerBombs()
+				  && $items->has('Super')
 				  && ($items->has('Gravity') || ($items->has('HiJump') && ($items->has('Ice') || $items->canSpringBallJump()) && $items->has('Grapple'))))
 				|| $items->canAccessMaridiaPortal();
         };
@@ -181,23 +186,31 @@ class Inner extends Region {
 
 
 		$this->locations["Missile (left Maridia sand pit room)"]->setRequirements(function($location, $items) {
-			return $items->canPassBombPassages();
+			return $items->canPassBombPassages() && $items->has('Super');
 		});
 
 		$this->locations["Reserve Tank, Maridia"]->setRequirements(function($location, $items) {
-			return $items->canPassBombPassages();
+			return $items->canPassBombPassages() && $items->has('Super');
 		});
 
-        $this->locations["Missile (pink Maridia)"]->setRequirements(function($location, $items) {
-            return $items->has('SpeedBooster');
+		$this->locations["Missile (right Maridia sand pit room)"]->setRequirements(function($location, $items) {
+			return $items->has('Super');
 		});
 
-        $this->locations["Super Missile (pink Maridia)"]->setRequirements(function($location, $items) {
-            return $items->has('SpeedBooster');
+		$this->locations["Power Bomb (right Maridia sand pit room)"]->setRequirements(function($location, $items) {
+			return $items->has('Super');
 		});
 
-        $this->locations["Spring Ball"]->setRequirements(function($location, $items) {
-            return $items->canUsePowerBombs() && ($items->has('Grapple') && ($items->has('SpaceJump') || $items->has('HiJump')));
+    $this->locations["Missile (pink Maridia)"]->setRequirements(function($location, $items) {
+      return $items->has('SpeedBooster');
+		});
+
+    $this->locations["Super Missile (pink Maridia)"]->setRequirements(function($location, $items) {
+      return $items->has('SpeedBooster');
+		});
+
+    $this->locations["Spring Ball"]->setRequirements(function($location, $items) {
+      return $items->canUsePowerBombs() && $items->has('Super') && ($items->has('Grapple') && ($items->has('SpaceJump') || $items->has('HiJump')));
 		});
 
         $this->locations["Missile (Draygon)"]->setRequirements(function($location, $items) {
@@ -215,6 +228,7 @@ class Inner extends Region {
         $this->can_enter = function($locations, $items) {
             return (($this->world->getRegion('West Norfair')->canEnter($locations, $items)
 				&& $items->canUsePowerBombs()
+				&& $items->has('Super')
 				&& ($items->canFlySM() || $items->has('SpeedBooster') || $items->has('Grapple')))
 				|| $items->canAccessMaridiaPortal())
                 && $items->has('Gravity');
