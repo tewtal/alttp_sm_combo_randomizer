@@ -63,7 +63,8 @@ class East extends Region {
         $this->can_enter = function($locations, $items) {
 			return ($items->canUsePowerBombs() && $items->has('Super'))
 				|| ($items->canAccessNorfairPortal() && $items->canUsePowerBombs() && ($items->has('Ice') || $items->canSpringBallJump() || $items->has('HiJump') || $items->canFlySM()))
-				|| ($items->canAccessMaridiaPortal() && $items->has('HiJump') && $items->has('Super'));
+				|| ($items->canAccessMaridiaPortal() && $items->has('Super') 
+					&& ($items->has('HiJump') && $items->canPassBombPassages()) || ($items->has('Gravity') && ($items->canDefeatDraygon() || $items->canDestroyBombWalls())) );
 		};
 
 		return $this;
@@ -83,18 +84,19 @@ class East extends Region {
 
 		$this->locations["Missile (outside Wrecked Ship top)"]->setRequirements(function($location, $items) {
 			return (($items->has('Super') && ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))))) || $items->canAccessMaridiaPortal())
-				&& ($items->has('HiJump') || $items->canFlySM() || $items->has('SpeedBooster'));
+				&& ($items->has('HiJump') || $items->canFlySM() || $items->has('SpeedBooster'))
+				&& $items->canPassBombPassages();
 		});
 
 		$this->locations["Missile (outside Wrecked Ship middle)"]->setRequirements(function($location, $items) {
 			return ($items->has('SpeedBooster') || $items->has('Grapple') || $items->has('SpaceJump') || ($items->has('Gravity') && ($items->canFlySM() || $items->has('HiJump'))) || $items->canAccessMaridiaPortal())
-			    && $items->has('Super');
+			    && $items->has('Super') && $items->canPassBombPassages();
 		});
 
 		$this->can_enter = function($locations, $items) {
 			return ($items->canUsePowerBombs() && $items->has('Super'))
 				|| ($items->canAccessNorfairPortal() && $items->canUsePowerBombs() && ($items->has('Ice') || $items->has('HiJump') || $items->has('SpaceJump')))
-				|| ($items->canAccessMaridiaPortal() && $items->has('Gravity') && $items->has('Super'));
+				|| ($items->canAccessMaridiaPortal() && $items->has('Gravity') && $items->has('Super') && ($items->canDestroyBombWalls() || $items->canDefeatDraygon()));
 		};
 
 		return $this;
