@@ -124,7 +124,9 @@ class Crocomire extends Region {
                 || $items->canAccessNorfairPortal())
                 && $items->has('Varia')
 				&& $items->has('Super')
-				&& (($items->canUsePowerBombs() && $items->has('SpeedBooster')) || ($items->has('SpeedBooster') && $items->has('Wave')) || ($items->has('Morph') && ($items->canFlySM() || $items->has('HiJump')) && $items->has('Wave')));
+				&& (($items->canUsePowerBombs() && $items->has('SpeedBooster'))
+				    || ($items->has('SpeedBooster') && $items->has('Wave'))
+				    || ($items->has('Morph') && ($items->canFlySM() || $items->has('HiJump')) && $items->has('Gravity') && $items->has('Wave')));
         };
 
 		return $this;
